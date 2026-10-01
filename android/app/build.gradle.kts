@@ -7,7 +7,6 @@ plugins {
 android {
     namespace = "com.gongkao.gongkao_review"
     compileSdk = flutter.compileSdkVersion
-    ndkVersion = flutter.ndkVersion
 
     compileOptions {
         sourceCompatibility = JavaVersion.VERSION_17
