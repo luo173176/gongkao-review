@@ -45,3 +45,6 @@ app.*.map.json
 key.properties
 **/*.keystore
 **/*.jks
+
+# 本地直接运行 gradlew 产生的构建目录
+/android/build/
