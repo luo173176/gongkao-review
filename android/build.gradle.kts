@@ -22,9 +22,13 @@ subprojects {
     afterEvaluate {
         extensions.findByName("android")?.let { androidExt ->
             runCatching {
-                androidExt.javaClass
-                    .getMethod("setCompileSdk", Int::class.javaPrimitiveType)
-                    .invoke(androidExt, 36)
+                androidExt.javaClass.methods
+                    .firstOrNull {
+                        it.name == "setCompileSdk" && it.parameterCount == 1 &&
+                            (it.parameterTypes[0] == Integer::class.java ||
+                                it.parameterTypes[0] == java.lang.Integer.TYPE)
+                    }
+                    ?.invoke(androidExt, 36)
             }
         }
     }
